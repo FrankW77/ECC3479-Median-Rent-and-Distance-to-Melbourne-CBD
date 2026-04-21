@@ -1,10 +1,18 @@
+from pathlib import Path
+
 import pandas as pd
+
+from data_cleaning_utils import is_non_lga_name, normalize_lga_name
+
+ROOT = Path(__file__).resolve().parents[1]
+RAW_DIR = ROOT / "Data" / "raw"
+CLEAN_DIR = ROOT / "Data" / "clean"
 
 def clean_health_data():
 
     # Load the health dataset (replace sheet_name if needed)
     df = pd.read_excel(
-        "data/raw/health_by_lga.xlsx",
+        RAW_DIR / "health_by_lga.xlsx",
         sheet_name="LGAs",
         engine="openpyxl",
         dtype=str
@@ -54,12 +62,15 @@ def clean_health_data():
         df[col] = df[col].replace("-", "0").astype(float)
 
     # Drop blank rows
+    df["lga_name"] = df["lga_name"].map(normalize_lga_name)
     df = df[df["lga_name"].notna()]
+    df = df[~df["lga_name"].map(is_non_lga_name)]
 
     # Save cleaned file
-    df.to_csv("data/clean/health_clean.csv", index=False)
+    CLEAN_DIR.mkdir(parents=True, exist_ok=True)
+    df.to_csv(CLEAN_DIR / "health_clean.csv", index=False)
 
-    print("✓ Clean health dataset saved to data/clean/health_clean.csv")
+    print("✓ Clean health dataset saved to Data/clean/health_clean.csv")
 
 
 if __name__ == "__main__":

@@ -1,10 +1,17 @@
+from pathlib import Path
+
 import pandas as pd
-import re
+
+from data_cleaning_utils import is_non_lga_name, normalize_lga_name
+
+ROOT = Path(__file__).resolve().parents[1]
+RAW_DIR = ROOT / "Data" / "raw"
+CLEAN_DIR = ROOT / "Data" / "clean"
 
 def clean_rent_data():
 
     df = pd.read_excel(
-        "data/raw/median_rent_by_lga.xlsx",
+        RAW_DIR / "median_rent_by_lga.xlsx",
         sheet_name="All Properties",
         skiprows=1,
         header=[0, 1],
@@ -85,13 +92,16 @@ def clean_rent_data():
     # 11. FINAL CLEAN DATAFRAME
     # ---------------------------------------------------------
     df_final = df_long[["lga_name", "year", "median_rent"]].dropna()
+    df_final["lga_name"] = df_final["lga_name"].map(normalize_lga_name)
+    df_final = df_final[~df_final["lga_name"].map(is_non_lga_name)]
 
     # ---------------------------------------------------------
     # 12. SAVE CLEAN FILE
     # ---------------------------------------------------------
-    df_final.to_csv("data/clean/median_rent_clean.csv", index=False)
+    CLEAN_DIR.mkdir(parents=True, exist_ok=True)
+    df_final.to_csv(CLEAN_DIR / "median_rent_clean.csv", index=False)
 
-    print("✓ Clean rental dataset saved to data/clean/median_rent_clean.csv")
+    print("✓ Clean rental dataset saved to Data/clean/median_rent_clean.csv")
 
 
 if __name__ == "__main__":

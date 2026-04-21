@@ -1,82 +1,80 @@
 lga_name,independent_schools,total_schools
-Alpine (S),,11.0
-Ararat (RC),,12.0
-Ballarat (C),4.0,48.0
-Banyule (C),3.0,42.0
-Bass Coast (S),3.0,15.0
-Baw Baw (S),3.0,37.0
-Bayside (C),4.0,27.0
-Benalla (RC),2.0,7.0
-Boroondara (C),18.0,57.0
-Brimbank (C),2.0,59.0
-Buloke (S),,9.0
-Campaspe (S),0.0,23.0
-Cardinia (S),4.0,41.0
-Casey (C),12.0,96.0
-Central Goldfields (S),1.0,8.0
-Colac-Otway (S),,17.0
-Corangamite (S),,14.0
-Darebin (C),5.0,44.0
-East Gippsland (S),2.0,33.0
-Frankston (C),3.0,42.0
-Gannawarra (S),1.0,11.0
-Glen Eira (C),10.0,35.0
-Glenelg (S),2.0,18.0
-Golden Plains (S),,13.0
-Greater Bendigo (C),4.0,52.0
-Greater Dandenong (C),6.0,42.0
-Greater Geelong (C),8.0,85.0
-Greater Shepparton (C),4.0,39.0
-Hepburn (S),1.0,13.0
-Hindmarsh (S),2.0,8.0
-Hobsons Bay (C),2.0,29.0
-Horsham (RC),1.0,8.0
-Hume (C),7.0,72.0
-Indigo (S),1.0,17.0
-Kingston (C),4.0,45.0
-Knox (C),6.0,49.0
-Latrobe (C),0.0,34.0
-Loddon (S),,8.0
-Macedon Ranges (S),3.0,27.0
-Manningham (C),1.0,31.0
-Mansfield (S),2.0,7.0
-Maribyrnong (C),1.0,22.0
-Maroondah (C),6.0,33.0
-Melbourne (C),9.0,25.0
-Melton (C),6.0,47.0
-Merri-bek (C),4.0,45.0
-Mildura (RC),3.0,31.0
-Mitchell (S),,17.0
-Moira (S),1.0,20.0
-Monash (C),4.0,54.0
-Moonee Valley (C),2.0,36.0
-Moorabool (S),1.0,18.0
-Mornington Peninsula (S),5.0,49.0
-Mount Alexander (S),2.0,15.0
-Moyne (S),,12.0
-Murrindindi (S),,14.0
-Nillumbik (S),3.0,27.0
-Northern Grampians (S),,13.0
-Port Phillip (C),3.0,21.0
-Pyrenees (S),,9.0
-Queenscliffe (B),,3.0
-South Gippsland (S),2.0,23.0
-Southern Grampians (S),3.0,18.0
-Stonnington (C),6.0,24.0
-Strathbogie (S),,8.0
-Surf Coast (S),1.0,13.0
-Swan Hill (RC),1.0,14.0
-Towong (S),,10.0
-Unincorporated Vic,1.0,4.0
-Wangaratta (RC),1.0,23.0
-Warrnambool (C),1.0,15.0
-Wellington (S),1.0,33.0
-West Wimmera (S),,5.0
-Whitehorse (C),6.0,49.0
-Whittlesea (C),5.0,61.0
-Wodonga (C),3.0,16.0
-Wyndham (C),6.0,71.0
-Yarra (C),4.0,28.0
-Yarra Ranges (S),11.0,78.0
-Yarriambiack (S),,12.0
-Grand Total,233.0,2301.0
+ALPINE,,11.0
+ARARAT,,12.0
+BALLARAT,4.0,48.0
+BANYULE,3.0,42.0
+BASS COAST,3.0,15.0
+BAW BAW,3.0,37.0
+BAYSIDE,4.0,27.0
+BENALLA,2.0,7.0
+BOROONDARA,18.0,57.0
+BRIMBANK,2.0,59.0
+BULOKE,,9.0
+CAMPASPE,0.0,23.0
+CARDINIA,4.0,41.0
+CASEY,12.0,96.0
+CENTRAL GOLDFIELDS,1.0,8.0
+COLAC-OTWAY,,17.0
+CORANGAMITE,,14.0
+DAREBIN,5.0,44.0
+EAST GIPPSLAND,2.0,33.0
+FRANKSTON,3.0,42.0
+GANNAWARRA,1.0,11.0
+GLEN EIRA,10.0,35.0
+GLENELG,2.0,18.0
+GOLDEN PLAINS,,13.0
+GREATER BENDIGO,4.0,52.0
+GREATER DANDENONG,6.0,42.0
+GREATER GEELONG,8.0,85.0
+GREATER SHEPPARTON,4.0,39.0
+HEPBURN,1.0,13.0
+HINDMARSH,2.0,8.0
+HOBSONS BAY,2.0,29.0
+HORSHAM,1.0,8.0
+HUME,7.0,72.0
+INDIGO,1.0,17.0
+KINGSTON,4.0,45.0
+KNOX,6.0,49.0
+LATROBE,0.0,34.0
+LODDON,,8.0
+MACEDON RANGES,3.0,27.0
+MANNINGHAM,1.0,31.0
+MANSFIELD,2.0,7.0
+MARIBYRNONG,1.0,22.0
+MAROONDAH,6.0,33.0
+MELBOURNE,9.0,25.0
+MELTON,6.0,47.0
+MERRI-BEK,4.0,45.0
+MILDURA,3.0,31.0
+MITCHELL,,17.0
+MOIRA,1.0,20.0
+MONASH,4.0,54.0
+MOONEE VALLEY,2.0,36.0
+MOORABOOL,1.0,18.0
+MORNINGTON PENINSULA,5.0,49.0
+MOUNT ALEXANDER,2.0,15.0
+MOYNE,,12.0
+MURRINDINDI,,14.0
+NILLUMBIK,3.0,27.0
+NORTHERN GRAMPIANS,,13.0
+PORT PHILLIP,3.0,21.0
+PYRENEES,,9.0
+QUEENSCLIFFE,,3.0
+SOUTH GIPPSLAND,2.0,23.0
+SOUTHERN GRAMPIANS,3.0,18.0
+STONNINGTON,6.0,24.0
+STRATHBOGIE,,8.0
+SURF COAST,1.0,13.0
+SWAN HILL,1.0,14.0
+TOWONG,,10.0
+WANGARATTA,1.0,23.0
+WARRNAMBOOL,1.0,15.0
+WELLINGTON,1.0,33.0
+WEST WIMMERA,,5.0
+WHITEHORSE,6.0,49.0
+WHITTLESEA,5.0,61.0
+WODONGA,3.0,16.0
+WYNDHAM,6.0,71.0
+YARRA,4.0,28.0
+YARRA RANGES,11.0,78.0
+YARRIAMBIACK,,12.0

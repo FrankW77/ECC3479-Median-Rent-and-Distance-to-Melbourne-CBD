@@ -1,4 +1,11 @@
+from pathlib import Path
+
 import pandas as pd
+
+from data_cleaning_utils import is_non_lga_name, normalize_lga_name
+
+ROOT = Path(__file__).resolve().parents[1]
+CLEAN_DIR = ROOT / "Data" / "clean"
 
 def standardise_lga_column(df):
     """
@@ -38,16 +45,23 @@ def expand_cross_section(df, years):
     return pd.concat(expanded, ignore_index=True)
 
 
+def clean_lga_frame(df):
+    df = df.copy()
+    df["lga_name"] = df["lga_name"].map(normalize_lga_name)
+    df = df[~df["lga_name"].map(is_non_lga_name)]
+    return df
+
+
 def clean_and_merge():
 
     # -----------------------------------
     # 1. Load cleaned datasets
     # -----------------------------------
-    rent = pd.read_csv("Data/clean/median_rent_clean.csv")
-    crime = pd.read_csv("Data/clean/crime_clean.csv")
-    schools = pd.read_csv("Data/clean/schools_clean.csv")
-    health = pd.read_csv("Data/clean/health_clean.csv")
-    distance = pd.read_csv("Data/clean/distance_clean.csv")
+    rent = pd.read_csv(CLEAN_DIR / "median_rent_clean.csv")
+    crime = pd.read_csv(CLEAN_DIR / "crime_clean.csv")
+    schools = pd.read_csv(CLEAN_DIR / "schools_clean.csv")
+    health = pd.read_csv(CLEAN_DIR / "health_clean.csv")
+    distance = pd.read_csv(CLEAN_DIR / "distance_clean.csv")
 
     print("RENT COLUMNS:", rent.columns.tolist())
     print("CRIME COLUMNS:", crime.columns.tolist())
@@ -80,19 +94,11 @@ def clean_and_merge():
     # -----------------------------------
     # 4. Standardise LGA formatting
     # -----------------------------------
-    for df in [rent, crime, schools, health, distance]:
-        df["lga_name"] = (
-            df["lga_name"]
-            .astype(str)
-            .str.strip()
-            .str.upper()
-            .str.replace(" CITY COUNCIL", "")
-            .str.replace(" CITY", "")
-            .str.replace(" SHIRE COUNCIL", "")
-            .str.replace(" SHIRE", "")
-            .str.replace(" BOROUGH", "")
-            .str.replace(" COUNCIL", "")
-        )
+    rent = clean_lga_frame(rent)
+    crime = clean_lga_frame(crime)
+    schools = clean_lga_frame(schools)
+    health = clean_lga_frame(health)
+    distance = clean_lga_frame(distance)
 
     # -----------------------------------
     # 5. Merge datasets
@@ -106,7 +112,11 @@ def clean_and_merge():
     # 6. Sort and save
     # -----------------------------------
     merged = merged.sort_values(["lga_name", "year"]).reset_index(drop=True)
-    merged.to_csv("Data/clean/final_panel.csv", index=False)
+    merged.to_csv(CLEAN_DIR / "final_panel.csv", index=False)
+
+    missing_pct = (merged.isna().mean() * 100).sort_values(ascending=False)
+    print("\nMissing values in final merged panel (%):")
+    print(missing_pct.round(2).to_string())
 
     print("\n✓ Final merged dataset saved to Data/clean/final_panel.csv")
 

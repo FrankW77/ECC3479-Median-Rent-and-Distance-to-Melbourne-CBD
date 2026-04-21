@@ -1,32 +1,32 @@
-local_government_area,address,suburb,latitude,longitude,straight_line_km,driving_km
-Banyule, 1 Flintoff Street, Greensborough VIC 3088,-37.7045,145.1036,17.51,22.0
-Brimbank,301 Hampshire Rd, Sunshine VIC 3020,-37.781,144.8325,12.13,13.9
-Darebin,274 Gower Street, Preston VIC 3072,-37.7407,145.0012,9.14,10.1
-Hobsons Bay,115 Civic Parade, Altona VIC 3018,-37.8705,144.827,12.87,17.1
-Hume,1079 Pascoe Vale Road, Broadmeadows VIC 3047,-37.6808,144.9195,15.37,16.2
-Maribyrnong,61 Napier St, Footscray VIC 3011,-37.8005,144.9008,5.7,6.6
-Melbourne, 120 Swanston St, Melbourne VIC 3000,-37.8149,144.9671,0.23,0.75
-Melton,232 High Street, Melton VIC 3337,-37.6835,144.5827,36.32,43.3
-Merri-bek,90 Bell Street, Coburg VIC 3058,-37.742,144.9653,8.28,8.9
-Moonee Valley,9 Kellaway Avenue, Moonee Ponds VIC 3039,-37.7657,144.9225,6.65,6.7
-Nillumbik,32 Civic Drive, Greensborough VIC 3088,-37.7032,145.1048,18.94,24.4
-Whittlesea,63 Church Street, Whittlesea VIC 3757,-37.5124,145.1155,36.34,40.4
-Wyndham,45 Princes Highway, Werribee VIC 3030,-37.9015,144.6606,27.35,30.7
-Yarra,333 Bridge Road, Richmond VIC 3121,-37.8187,144.9982,3.25,4.7
-Boroondara,8 Inglesby Road, Camberwell VIC 3124,-37.8366,145.0693,8.61,10.6
-Knox,511 Burwood Highway, Wantirna South VIC 3152,-37.8525,145.2271,25.51,34.8
-Manningham,699 Doncaster Road, Doncaster VIC 3108,-37.7878,145.1246,15.18,18.5
-Maroondah,179 Maroondah Highway, Ringwood VIC 3134,-37.815,145.2285,24.24,28.0
-Monash,293 Springvale Road, Glen Waverley VIC 3150,-37.8823,145.1652,19.14,24.6
-Whitehorse,399 Whitehorse Road, Nunawading VIC 3131,-37.8178,145.1742,19.08,21.8
-Yarra Ranges,15 Anderson Street, Lilydale VIC 3140,-37.758,145.3505,34.81,41.1
-Bayside,76 Royal Avenue, Sandringham VIC 3191,-37.9528,145.0106,16.74,18.9
-Cardinia,20 Siding Avenue, Officer VIC 3809,-38.0593,145.4105,48.28,54.3
-Casey,2 Patrick Northeast Drive, Narre Warren VIC 3805,-38.0256,145.3031,37.33,41.9
-Frankston,30 Davey Street, Frankston VIC 3199,-38.1447,145.1223,39.47,47.7
-Glen Eira,Corner Glen Eira & Hawthorn Roads, Caulfield South VIC 3162,-37.8915,145.0252,8.9,12.0
-Greater Dandenong,225 Lonsdale St, Dandenong VIC 3175,-37.9865,145.215,29.25,35.2
-Kingston,1230 Nepean Hwy, Cheltenham VIC 3192,-37.9661,145.0547,18.71,20.3
-Mornington Penin'a,90 Besgrove Street, Rosebud VIC 3939,-38.3585,144.9068,62.11,84.8
-Port Phillip,99a Carlisle Street, St Kilda VIC 3182,-37.8676,144.9813,6.31,8.4
-Stonnington,311 Glenferrie Road, Malvern VIC 3144,-37.8618,145.0287,7.31,10.2
+lga_name,address,suburb,latitude,longitude,straight_line_km,driving_km
+BANYULE, 1 Flintoff Street, Greensborough VIC 3088,-37.7045,145.1036,17.51,22.0
+BRIMBANK,301 Hampshire Rd, Sunshine VIC 3020,-37.781,144.8325,12.13,13.9
+DAREBIN,274 Gower Street, Preston VIC 3072,-37.7407,145.0012,9.14,10.1
+HOBSONS BAY,115 Civic Parade, Altona VIC 3018,-37.8705,144.827,12.87,17.1
+HUME,1079 Pascoe Vale Road, Broadmeadows VIC 3047,-37.6808,144.9195,15.37,16.2
+MARIBYRNONG,61 Napier St, Footscray VIC 3011,-37.8005,144.9008,5.7,6.6
+MELBOURNE, 120 Swanston St, Melbourne VIC 3000,-37.8149,144.9671,0.23,0.75
+MELTON,232 High Street, Melton VIC 3337,-37.6835,144.5827,36.32,43.3
+MERRI-BEK,90 Bell Street, Coburg VIC 3058,-37.742,144.9653,8.28,8.9
+MOONEE VALLEY,9 Kellaway Avenue, Moonee Ponds VIC 3039,-37.7657,144.9225,6.65,6.7
+NILLUMBIK,32 Civic Drive, Greensborough VIC 3088,-37.7032,145.1048,18.94,24.4
+WHITTLESEA,63 Church Street, Whittlesea VIC 3757,-37.5124,145.1155,36.34,40.4
+WYNDHAM,45 Princes Highway, Werribee VIC 3030,-37.9015,144.6606,27.35,30.7
+YARRA,333 Bridge Road, Richmond VIC 3121,-37.8187,144.9982,3.25,4.7
+BOROONDARA,8 Inglesby Road, Camberwell VIC 3124,-37.8366,145.0693,8.61,10.6
+KNOX,511 Burwood Highway, Wantirna South VIC 3152,-37.8525,145.2271,25.51,34.8
+MANNINGHAM,699 Doncaster Road, Doncaster VIC 3108,-37.7878,145.1246,15.18,18.5
+MAROONDAH,179 Maroondah Highway, Ringwood VIC 3134,-37.815,145.2285,24.24,28.0
+MONASH,293 Springvale Road, Glen Waverley VIC 3150,-37.8823,145.1652,19.14,24.6
+WHITEHORSE,399 Whitehorse Road, Nunawading VIC 3131,-37.8178,145.1742,19.08,21.8
+YARRA RANGES,15 Anderson Street, Lilydale VIC 3140,-37.758,145.3505,34.81,41.1
+BAYSIDE,76 Royal Avenue, Sandringham VIC 3191,-37.9528,145.0106,16.74,18.9
+CARDINIA,20 Siding Avenue, Officer VIC 3809,-38.0593,145.4105,48.28,54.3
+CASEY,2 Patrick Northeast Drive, Narre Warren VIC 3805,-38.0256,145.3031,37.33,41.9
+FRANKSTON,30 Davey Street, Frankston VIC 3199,-38.1447,145.1223,39.47,47.7
+GLEN EIRA,Corner Glen Eira & Hawthorn Roads, Caulfield South VIC 3162,-37.8915,145.0252,8.9,12.0
+GREATER DANDENONG,225 Lonsdale St, Dandenong VIC 3175,-37.9865,145.215,29.25,35.2
+KINGSTON,1230 Nepean Hwy, Cheltenham VIC 3192,-37.9661,145.0547,18.71,20.3
+MORNINGTON PENINSULA,90 Besgrove Street, Rosebud VIC 3939,-38.3585,144.9068,62.11,84.8
+PORT PHILLIP,99a Carlisle Street, St Kilda VIC 3182,-37.8676,144.9813,6.31,8.4
+STONNINGTON,311 Glenferrie Road, Malvern VIC 3144,-37.8618,145.0287,7.31,10.2

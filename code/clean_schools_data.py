@@ -1,10 +1,18 @@
+from pathlib import Path
+
 import pandas as pd
+
+from data_cleaning_utils import is_non_lga_name, normalize_lga_name
+
+ROOT = Path(__file__).resolve().parents[1]
+RAW_DIR = ROOT / "Data" / "raw"
+CLEAN_DIR = ROOT / "Data" / "clean"
 
 def clean_schools_data():
 
     # Load sheet with correct header row (row 10)
     df = pd.read_excel(
-        "data/raw/schools_by_lga.xlsx",
+        RAW_DIR / "schools_by_lga.xlsx",
         sheet_name="LGA Data",
         engine="openpyxl",
         header=10,
@@ -26,13 +34,15 @@ def clean_schools_data():
     df["total_schools"] = df["total_schools"].replace("-", "0").astype(float)
 
     # Drop totals or blank rows
+    df["lga_name"] = df["lga_name"].map(normalize_lga_name)
     df = df[df["lga_name"].notna()]
-    df = df[df["lga_name"].str.lower() != "total"]
+    df = df[~df["lga_name"].map(is_non_lga_name)]
 
     # Save cleaned file
-    df.to_csv("data/clean/schools_clean.csv", index=False)
+    CLEAN_DIR.mkdir(parents=True, exist_ok=True)
+    df.to_csv(CLEAN_DIR / "schools_clean.csv", index=False)
 
-    print("✓ Clean schools dataset saved to data/clean/schools_clean.csv")
+    print("✓ Clean schools dataset saved to Data/clean/schools_clean.csv")
 
 
 if __name__ == "__main__":

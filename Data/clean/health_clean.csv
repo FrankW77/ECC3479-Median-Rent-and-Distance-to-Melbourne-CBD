@@ -1,81 +1,80 @@
 lga_name,gp_clinics_per_1000,allied_health_per_1000,dental_sites_per_1000,pharmacies_per_1000,acsc_per_1000
-Alpine (S),0.3,1.3,0.2,0.2,29.2
-Ararat (RC),0.5,0.9,0.3,0.4,32.4
-Ballarat (C),0.3,0.8,0.3,0.2,25.5
-Banyule (C),0.4,1.4,0.5,0.3,23.5
-Bass Coast (S),0.3,1.4,0.2,0.3,30.9
-Baw Baw (S),0.3,0.9,0.1,0.2,23.2
-Bayside (C),0.4,1.6,0.6,0.3,27.1
-Benalla (RC),0.2,1.2,0.4,0.3,31.7
-Boroondara (C),0.3,1.2,0.6,0.3,21.0
-Brimbank (C),0.4,0.5,0.2,0.2,25.4
-Buloke (S),1.2,1.6,,0.8,43.7
-Campaspe (S),0.5,1.0,0.2,0.3,36.6
-Cardinia (S),0.2,0.5,0.1,0.2,29.4
-Casey (C),0.2,0.4,0.2,0.2,28.0
-Central Goldfields (S),0.3,0.8,0.6,0.2,41.0
-Colac-Otway (S),0.3,1.0,0.2,0.2,28.9
-Corangamite (S),0.6,1.8,0.3,0.4,38.8
-Darebin (C),0.3,0.7,0.2,0.2,26.6
-East Gippsland (S),0.5,1.1,0.2,0.3,36.2
-Frankston (C),0.3,0.7,0.2,0.2,30.7
-Gannawarra (S),0.5,1.4,0.4,0.2,47.3
-Glen Eira (C),0.4,1.1,0.4,0.2,24.1
-Glenelg (S),0.6,1.1,0.3,0.3,27.6
-Golden Plains (S),0.2,0.7,0.0,0.1,19.2
-Greater Bendigo (C),0.4,0.9,0.3,0.3,30.0
-Greater Dandenong (C),0.5,0.7,0.4,0.3,32.2
-Greater Geelong (C),0.3,1.1,0.3,0.3,27.9
-Greater Shepparton (C),0.3,0.7,0.2,0.2,30.8
-Hepburn (S),0.5,0.8,0.2,0.2,27.4
-Hindmarsh (S),1.1,0.9,0.5,0.9,56.0
-Hobsons Bay (C),0.3,0.8,0.2,0.2,24.8
-Horsham (RC),0.4,1.1,0.2,0.2,26.4
-Hume (C),0.2,0.4,0.1,0.1,25.2
-Indigo (S),0.3,0.6,,0.3,18.3
-Kingston (C),0.2,0.5,0.2,0.1,26.7
-Knox (C),0.3,0.6,0.3,0.2,25.9
-Latrobe (C),0.4,0.7,0.2,0.2,33.4
-Loddon (S),0.7,1.0,0.3,0.4,40.1
-Macedon Ranges (S),0.4,0.9,0.2,0.2,19.7
-Manningham (C),0.3,0.9,0.4,0.1,24.3
-Mansfield (S),0.6,1.2,0.1,0.5,30.8
-Maribyrnong (C),0.5,0.8,0.4,0.4,21.8
-Maroondah (C),0.3,0.7,0.3,0.2,26.2
-Melbourne (C),0.8,2.5,1.1,0.6,13.3
-Melton (C),0.1,0.2,0.1,0.1,21.8
-Mildura (RC),0.3,1.1,0.2,0.2,26.2
-Mitchell (S),0.3,0.9,0.2,0.3,23.2
-Moira (S),0.3,0.9,0.2,0.2,35.6
-Monash (C),0.3,0.9,0.3,0.3,27.3
-Moonee Valley (C),0.4,1.3,0.4,0.3,25.8
-Moorabool (S),0.3,0.7,0.1,0.1,24.9
-Moreland (C),0.4,0.9,0.2,0.3,26.4
-Mornington Peninsula (S),0.3,1.1,0.3,0.3,33.6
-Mount Alexander (S),0.3,1.2,0.2,0.3,25.5
-Moyne (S),0.2,0.8,,0.2,27.3
-Murrindindi (S),0.4,0.9,,0.3,31.7
-Nillumbik (S),0.1,0.3,0.1,0.1,16.0
-Northern Grampians (S),0.5,1.4,0.4,0.3,31.7
-Port Phillip (C),0.4,0.9,0.3,0.3,20.9
-Pyrenees (S),0.6,0.7,,0.3,32.0
-Queenscliffe (B),,0.7,,0.3,40.0
-South Gippsland (S),0.4,0.7,0.3,0.3,31.6
-Southern Grampians (S),0.3,1.0,0.2,0.3,34.2
-Stonnington (C),0.4,1.2,0.5,0.2,20.1
-Strathbogie (S),0.5,1.1,0.2,0.3,30.9
-Surf Coast (S),0.4,1.2,0.1,0.2,20.7
-Swan Hill (RC),0.5,0.9,0.1,0.2,39.2
-Towong (S),0.9,0.9,,0.3,16.0
-Wangaratta (RC),0.4,1.0,0.2,0.2,28.8
-Warrnambool (C),0.4,1.1,0.3,0.3,25.4
-Wellington (S),0.3,0.9,0.2,0.3,31.1
-West Wimmera (S),1.8,1.0,0.3,0.8,39.7
-Whitehorse (C),0.3,1.1,0.4,0.2,25.4
-Whittlesea (C),0.2,0.4,0.2,0.1,24.6
-Wodonga (RC),0.3,0.8,0.2,0.2,17.7
-Wyndham (C),0.2,0.4,0.2,0.1,21.1
-Yarra (C),0.5,1.0,0.4,0.2,18.8
-Yarra Ranges (S),0.3,0.7,0.1,0.2,25.7
-Yarriambiack (S),1.6,1.5,0.1,0.7,37.1
-Victoria,0.3,0.9,0.3,0.2,26.0
+ALPINE,0.3,1.3,0.2,0.2,29.2
+ARARAT,0.5,0.9,0.3,0.4,32.4
+BALLARAT,0.3,0.8,0.3,0.2,25.5
+BANYULE,0.4,1.4,0.5,0.3,23.5
+BASS COAST,0.3,1.4,0.2,0.3,30.9
+BAW BAW,0.3,0.9,0.1,0.2,23.2
+BAYSIDE,0.4,1.6,0.6,0.3,27.1
+BENALLA,0.2,1.2,0.4,0.3,31.7
+BOROONDARA,0.3,1.2,0.6,0.3,21.0
+BRIMBANK,0.4,0.5,0.2,0.2,25.4
+BULOKE,1.2,1.6,,0.8,43.7
+CAMPASPE,0.5,1.0,0.2,0.3,36.6
+CARDINIA,0.2,0.5,0.1,0.2,29.4
+CASEY,0.2,0.4,0.2,0.2,28.0
+CENTRAL GOLDFIELDS,0.3,0.8,0.6,0.2,41.0
+COLAC-OTWAY,0.3,1.0,0.2,0.2,28.9
+CORANGAMITE,0.6,1.8,0.3,0.4,38.8
+DAREBIN,0.3,0.7,0.2,0.2,26.6
+EAST GIPPSLAND,0.5,1.1,0.2,0.3,36.2
+FRANKSTON,0.3,0.7,0.2,0.2,30.7
+GANNAWARRA,0.5,1.4,0.4,0.2,47.3
+GLEN EIRA,0.4,1.1,0.4,0.2,24.1
+GLENELG,0.6,1.1,0.3,0.3,27.6
+GOLDEN PLAINS,0.2,0.7,0.0,0.1,19.2
+GREATER BENDIGO,0.4,0.9,0.3,0.3,30.0
+GREATER DANDENONG,0.5,0.7,0.4,0.3,32.2
+GREATER GEELONG,0.3,1.1,0.3,0.3,27.9
+GREATER SHEPPARTON,0.3,0.7,0.2,0.2,30.8
+HEPBURN,0.5,0.8,0.2,0.2,27.4
+HINDMARSH,1.1,0.9,0.5,0.9,56.0
+HOBSONS BAY,0.3,0.8,0.2,0.2,24.8
+HORSHAM,0.4,1.1,0.2,0.2,26.4
+HUME,0.2,0.4,0.1,0.1,25.2
+INDIGO,0.3,0.6,,0.3,18.3
+KINGSTON,0.2,0.5,0.2,0.1,26.7
+KNOX,0.3,0.6,0.3,0.2,25.9
+LATROBE,0.4,0.7,0.2,0.2,33.4
+LODDON,0.7,1.0,0.3,0.4,40.1
+MACEDON RANGES,0.4,0.9,0.2,0.2,19.7
+MANNINGHAM,0.3,0.9,0.4,0.1,24.3
+MANSFIELD,0.6,1.2,0.1,0.5,30.8
+MARIBYRNONG,0.5,0.8,0.4,0.4,21.8
+MAROONDAH,0.3,0.7,0.3,0.2,26.2
+MELBOURNE,0.8,2.5,1.1,0.6,13.3
+MELTON,0.1,0.2,0.1,0.1,21.8
+MILDURA,0.3,1.1,0.2,0.2,26.2
+MITCHELL,0.3,0.9,0.2,0.3,23.2
+MOIRA,0.3,0.9,0.2,0.2,35.6
+MONASH,0.3,0.9,0.3,0.3,27.3
+MOONEE VALLEY,0.4,1.3,0.4,0.3,25.8
+MOORABOOL,0.3,0.7,0.1,0.1,24.9
+MERRI-BEK,0.4,0.9,0.2,0.3,26.4
+MORNINGTON PENINSULA,0.3,1.1,0.3,0.3,33.6
+MOUNT ALEXANDER,0.3,1.2,0.2,0.3,25.5
+MOYNE,0.2,0.8,,0.2,27.3
+MURRINDINDI,0.4,0.9,,0.3,31.7
+NILLUMBIK,0.1,0.3,0.1,0.1,16.0
+NORTHERN GRAMPIANS,0.5,1.4,0.4,0.3,31.7
+PORT PHILLIP,0.4,0.9,0.3,0.3,20.9
+PYRENEES,0.6,0.7,,0.3,32.0
+QUEENSCLIFFE,,0.7,,0.3,40.0
+SOUTH GIPPSLAND,0.4,0.7,0.3,0.3,31.6
+SOUTHERN GRAMPIANS,0.3,1.0,0.2,0.3,34.2
+STONNINGTON,0.4,1.2,0.5,0.2,20.1
+STRATHBOGIE,0.5,1.1,0.2,0.3,30.9
+SURF COAST,0.4,1.2,0.1,0.2,20.7
+SWAN HILL,0.5,0.9,0.1,0.2,39.2
+TOWONG,0.9,0.9,,0.3,16.0
+WANGARATTA,0.4,1.0,0.2,0.2,28.8
+WARRNAMBOOL,0.4,1.1,0.3,0.3,25.4
+WELLINGTON,0.3,0.9,0.2,0.3,31.1
+WEST WIMMERA,1.8,1.0,0.3,0.8,39.7
+WHITEHORSE,0.3,1.1,0.4,0.2,25.4
+WHITTLESEA,0.2,0.4,0.2,0.1,24.6
+WODONGA,0.3,0.8,0.2,0.2,17.7
+WYNDHAM,0.2,0.4,0.2,0.1,21.1
+YARRA,0.5,1.0,0.4,0.2,18.8
+YARRA RANGES,0.3,0.7,0.1,0.2,25.7
+YARRIAMBIACK,1.6,1.5,0.1,0.7,37.1
