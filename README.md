@@ -1,7 +1,7 @@
 # ECC3479 – Rental Prices and Distance to Melbourne CBD
 
 ## Overview
-This project investigates the relationship between proximity to Melbourne CBD and median rental prices across metropolitan LGAs. The analysis is **descriptive**: we report conditional correlations and associations, not causal treatment effects.
+This project investigates the relationship between proximity to Melbourne CBD and median rental prices across metropolitan LGAs. The analysis is descriptive: we report conditional correlations and associations, not causal treatment effects.
 
 ---
 
@@ -84,44 +84,44 @@ ECC3479-Median-Rent/
 
 ## Methodological Declaration
 
-**Analysis Type: DESCRIPTIVE**
+Analysis Type: DESCRIPTIVE
 
-We estimate the unconditional correlation between distance to Melbourne CBD and median rental prices. We do **not** attempt to identify a causal treatment effect. This is a straightforward report of associations across Local Government Areas.
+We estimate the unconditional correlation between distance to Melbourne CBD and median rental prices. We do not attempt to identify a causal treatment effect. This is a straightforward report of associations across Local Government Areas.
 
 ---
 
 ## Econometric Specification
 
-**Main Model (between-LGA OLS):**
+Main Model (between-LGA OLS):
 $$\overline{\text{median\_rent}}_{i} = \beta_0 + \beta_1 \cdot \overline{\text{distance}}_{i} + \varepsilon_{i}$$
 
 where the overbar denotes the LGA-level mean after aggregating across years.
 
-**Key Details:**
-- **Outcome:** Mean median weekly rent by LGA (AUD)
-- **Regressor:** Mean straight-line distance from LGA centroid to Melbourne CBD (km)
-- **Sample:** LGAs with both rent and distance data present after aggregation
-- **N:** 31 LGAs with distance data
-- **Standard Errors:** Plain OLS on one observation per LGA
-- **Functional Form:** Linear, with a log-linear robustness check in the notebook
+Key Details:
+- Outcome: Mean median weekly rent by LGA (AUD)
+- Regressor: Mean straight-line distance from LGA centroid to Melbourne CBD (km)
+- Sample: LGAs with both rent and distance data present after aggregation
+- N: 31 LGAs with distance data
+- Standard Errors: Plain OLS on one observation per LGA
+- Functional Form: Linear, with a log-linear robustness check in the notebook
 
-**Specification Rationale:**
+Specification Rationale:
 We collapse the panel to the LGA level because distance does not vary within an LGA. This makes the coefficient easier to interpret as a between-LGA rent gradient and avoids giving the regression artificial within-LGA precision.
 
 ---
 
 ## Main Results Summary
 
-**Coefficient on Distance (Linear Model, N=31 LGAs):**
-- **-$1.45 per week per km** (95% CI: -$2.41 to -$0.48)
-- **t-stat:** -3.06, **p-value:** 0.0047
-- **R²:** 0.244 (distance explains about 24% of between-LGA variation in mean median rent)
+Coefficient on Distance (Linear Model, N=31 LGAs):
+- -$1.45 per week per km (95% CI: -$2.41 to -$0.48)
+- t-stat: -3.06, p-value: 0.0047
+- R²: 0.244 (distance explains about 24% of between-LGA variation in mean median rent)
 
-**Interpretation:**
-For each additional kilometer from the CBD, mean median rent **decreases by approximately $1.45/week** (~$75/year). An LGA 10 km farther away has mean rent about $14.50/week lower.
+Interpretation:
+For each additional kilometer from the CBD, mean median rent decreases by approximately $1.45/week (~$75/year). An LGA 10 km farther away has mean rent about $14.50/week lower.
 
-**Robustness (Log-linear model):**
-The notebook’s log-linear check shows a similarly negative gradient: about **-0.41% per km** (p = 0.0038).
+Robustness (Log-linear model):
+The notebook’s log-linear check shows a similarly negative gradient: about -0.41% per km (p = 0.0038).
 
 ---
 
@@ -146,7 +146,7 @@ Since we claim descriptive rather than causal inference, we acknowledge but do n
    - No fixed effects; relies on between-LGA variation
    - Within-LGA changes over time (e.g., gentrification) not modeled
 
-**Conclusion:**
+Conclusion:
 The negative distance-rent association is robust and genuinely descriptive—farther LGAs do have lower median rents. However, the mechanisms (distance → amenities → rent vs. distance ← amenities ← rent) remain unidentified and are beyond the scope of descriptive analysis.
 
 ---
