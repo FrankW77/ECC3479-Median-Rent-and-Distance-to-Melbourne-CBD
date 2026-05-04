@@ -253,30 +253,3 @@ outputs/
 | Effect size (10 km farther) | -$14.50 / week (~$750/year) |
 | Semi-elasticity | -0.41% per km |
 | Conclusion | Significant negative distance gradient; descriptive analysis of between-LGA variation |
-
----
-
-## Documentation
-
-- [Data Dictionary](Data/raw/README.md) – Raw data sources and variable definitions
-- [Notebook](EDA/eda_analysis.ipynb) – Full analysis, interpretation, and limitations
-- [Code](code/) – Cleaning and regression scripts with inline comments
-- pandas
-- numpy
-- matplotlib
-- seaborn
-- statsmodels
-- linearmodels
-- requests
-Exact versions are listed in requirements.txt.
-
-Manual Steps (Outside of Code)
-- Download raw Excel datasets from official sources
-- Place them unchanged into data/raw/
-- Verify that the column names match those expected by the cleaning scripts
-- Optionally inspect outputs in data/clean/ and outputs/ after running scripts
-
-
-
-Contact
-For questions about reproducibility, data structure, or workflow, please contact the author.
