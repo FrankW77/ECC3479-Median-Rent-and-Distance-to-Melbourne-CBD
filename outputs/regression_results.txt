@@ -4,7 +4,7 @@ Dep. Variable:            median_rent   R-squared:                       0.244
 Model:                            OLS   Adj. R-squared:                  0.218
 Method:                 Least Squares   F-statistic:                     9.371
 Date:                Mon, 04 May 2026   Prob (F-statistic):            0.00472
-Time:                        21:15:28   Log-Likelihood:                -155.25
+Time:                        21:38:25   Log-Likelihood:                -155.25
 No. Observations:                  31   AIC:                             314.5
 Df Residuals:                      29   BIC:                             317.4
 Df Model:                           1                                         
