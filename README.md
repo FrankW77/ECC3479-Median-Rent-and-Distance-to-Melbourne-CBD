@@ -276,8 +276,7 @@ Manual Steps (Outside of Code)
 - Verify that the column names match those expected by the cleaning scripts
 - Optionally inspect outputs in data/clean/ and outputs/ after running scripts
 
-AI Use
-Some parts of this project (e.g. code structure and debugging assistance) were supported by Microsoft Copilot. All analysis, interpretation and final decisions were made by the author. 
+
 
 Contact
 For questions about reproducibility, data structure, or workflow, please contact the author.
