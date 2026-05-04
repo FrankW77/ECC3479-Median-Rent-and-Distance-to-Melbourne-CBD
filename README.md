@@ -86,7 +86,7 @@ ECC3479-Median-Rent/
 
 **Analysis Type: DESCRIPTIVE**
 
-We estimate the unconditional correlation between distance to Melbourne CBD and median rental prices. We do **not** attempt to identify a causal treatment effect. This is a straightforward report of conditional means and associations across Local Government Areas.
+We estimate the unconditional correlation between distance to Melbourne CBD and median rental prices. We do **not** attempt to identify a causal treatment effect. This is a straightforward report of associations across Local Government Areas.
 
 ---
 
