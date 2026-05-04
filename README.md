@@ -1,103 +1,264 @@
 # ECC3479 – Rental Prices and Distance to Melbourne CBD
 
-## Research Question
-Does proximity to the Melbourne Central Business District increase median rental prices in metropolitan Melbourne, keeping other factors constant?
+## Overview
+This project investigates the relationship between proximity to Melbourne CBD and median rental prices across metropolitan LGAs. The analysis is **descriptive**: we report conditional correlations and associations, not causal treatment effects.
 
 ---
 
-## Repository Structure
-project/ │ ├── data/ │   ├── raw/        # Original data files (saved as CSV; never edited by hand) │   └── clean/      # Cleaned and merged datasets produced by code │ ├── code/           # Python scripts for cleaning, merging, and analysis ├── docs/           # Documentation (data codebook, AI usage notes, etc.) └── outputs/        # Tables, figures, regression results
+## Quick Start: Run the Analysis
 
-
----
-
-## Raw Data Format
-
-The original datasets were provided as **Excel (.xlsx) files** by various government sources.  
-For transparency and reproducibility:
-
-- The Excel files are stored in `data/raw/` (e.g. `median_rent_by_lga.xlsx`, `schools_by_lga.xlsx`, `health_by_lga.xlsx`, `crime_by_lga.xlsx`, `distance_by_lga.xlsx`)
-- These files are **never edited by hand**
-- All cleaning and transformations occur **only through Python scripts**, which write outputs to `data/clean/`
-
-This follows the principle that **raw data is immutable and all changes are scripted**.
-
----
-
-## How to Run the Project From Scratch
-
-### 1. Install Python and VS Code
-- Install **Python 3.11+** from https://www.python.org  
-- Install **VS Code** from https://code.visualstudio.com  
-- Install the **Python extension** (ms-python.python) inside VS Code
-
----
-
-### 2. Install Required Python Packages
-
-Open VS Code → Terminal → run:
-
+### Option 1: Jupyter Notebook (Recommended for exploratory review)
 ```bash
+# Install dependencies
 pip install -r requirements.txt
 
-This installs:
-- pandas
-- numpy
-- matplotlib
-- seaborn
-- statsmodels
-- linearmodels
-- requests
+# Open the Jupyter notebook
+jupyter notebook EDA/eda_analysis.ipynb
+```
+The notebook contains:
+- Data loading and structure checks
+- Exploratory data analysis (distributions, correlations)
+- Regression analysis with econometric specification
+- Explicit declaration of descriptive vs. causal ambition
+- Formatted regression table and coefficient interpretation
+- Limitations and threats to inference
 
-3. Ensure Raw Data Files are in place
-Confirm the following files exist in data/raw/:
-- median_rent_by_lga.xlsx
-- schools_by_lga.xlsx
-- health_by_lga.xlsx
-- crime_by_lga.xlsx
-- distance_by_lga.xlsx
-- README.md (describing sources and variables)
-If any dataset cannot be shared, instructions for obtaining it should be documented in data/raw/README.md or docs/data_access.md
-
-Script Execution Order
-Run the following scripts in this order to reproduce the full workflow:
-
-1. Clean individual datasets
+### Option 2: Command-line pipeline (Reproducible batch processing)
+```bash
+# 1. Clean individual datasets
 python code/clean_rent_data.py
 python code/clean_schools_data.py
 python code/clean_health_data.py
 python code/clean_crime_data.py
 python code/clean_distance_data.py
 
-These scripts read from data/raw/*.xlsx and produce cleaned CSVs in data/clean/, including:
-- median_rent_clean.csv
-- schools_clean.csv
-- health_clean.csv
-- crime_clean.csv
-- distance_clean.csv
-
-
-2. Merge all cleaned datasets into a final analysis panel
+# 2. Merge all cleaned data
 python code/clean_and_merge_data.py
 
-This script produces:
-- data/clean/final_panel.csv
-
-3. Run the regression analysis
+# 3. Run regression analysis
 python code/run_regression.py
+```
+Results are written to `outputs/` directory.
 
-- This script should read final_panel.csv and write results to:
-- outputs/regression_results.csv (and/or a printed regression summary)
+---
 
-Manual Steps (Outside of Code)
-- Download raw Excel datasets from official Victorian Government sources
-- Place them unchanged into data/raw/
-- Ensure column names match those expected by the cleaning scripts
-- Review outputs in data/clean/ and outputs/ after running scripts
+## Repository Structure
 
+```
+ECC3479-Median-Rent/
+├── README.md                        # This file
+├── requirements.txt                 # Python package dependencies
+│
+├── Data/
+│   ├── raw/                         # Original Excel files (immutable)
+│   │   └── README.md                # Data sources and variable definitions
+│   └── clean/                       # Cleaned CSV files (produced by scripts)
+│       ├── final_panel.csv          # Main analysis dataset
+│       ├── median_rent_clean.csv
+│       ├── crime_clean.csv
+│       ├── distance_clean.csv
+│       ├── schools_clean.csv
+│       └── health_clean.csv
+│
+├── code/                            # Python scripts (executed in order below)
+│   ├── clean_rent_data.py
+│   ├── clean_crime_data.py
+│   ├── clean_distance_data.py
+│   ├── clean_health_data.py
+│   ├── clean_schools_data.py
+│   ├── data_cleaning_utils.py       # Shared utilities
+│   ├── clean_and_merge_data.py      # Merge cleaned data into panel
+│   └── run_regression.py            # Regression analysis script
+│
+├── EDA/
+│   └── eda_analysis.ipynb           # PRIMARY ANALYSIS FILE
+│                                    # Exploratory Data Analysis + Regression
+│                                    # Spec, interpretation, limitations all included
+│
+└── outputs/
+    ├── regression_results.csv       # Coefficient table (tidy format)
+    └── regression_results.txt       # Full regression summary
+```
 
-Software Information
-This project uses Python with the following packages:
+---
+
+## Methodological Declaration
+
+**Analysis Type: DESCRIPTIVE**
+
+We estimate the unconditional correlation between distance to Melbourne CBD and median rental prices. We do **not** attempt to identify a causal treatment effect. This is a straightforward report of conditional means and associations across Local Government Areas.
+
+---
+
+## Econometric Specification
+
+**Main Model:**
+$$\text{median\_rent}_{i,t} = \beta_0 + \beta_1 \cdot \text{distance\_km}_{i} + \varepsilon_{i,t}$$
+
+**Key Details:**
+- **Outcome:** Median weekly rent (AUD)
+- **Regressor:** Straight-line distance from LGA centroid to Melbourne CBD (km)
+- **Sample:** All LGA-year observations in final_panel.csv with non-missing distance and rent
+- **N:** ~500 LGA-year observations across ~60 LGAs and ~10 years
+- **Standard Errors:** Clustered by LGA (to account for within-LGA correlation across years)
+- **Functional Form:** Linear, with log-linear robustness check
+
+**Specification Rationale:**
+We prioritize transparency and sample size over adding controls with >50% missingness (crime, schools, health). The unconditional association is more interpretable for stakeholders and represents the marginal rent gradient across Victorian LGAs.
+
+---
+
+## Main Results Summary
+
+**Coefficient on Distance (Linear Model, N=31 LGAs):**
+- **-$1.45 per week per km** (95% CI: -$2.41 to -$0.53)
+- **t-stat:** -3.06, **p-value:** 0.0047
+- **R²:** 0.244 (distance explains ~24% of between-LGA variation in median rent)
+
+**Interpretation:**
+For each additional kilometer from the CBD, median rent **decreases by approximately $1.45/week** (~$75/year). An LGA 10 km farther away has rent ~$14.50/week lower. This reflects a significant negative distance gradient in metropolitan Melbourne rents, though other factors explain the majority of rent variation across LGAs.
+
+**Robustness (Log-linear model):**
+Each km farther reduces rent by **0.41% on average** (95% CI: -0.67% to -0.15%; t-stat: -3.14; p-value: 0.0038). Consistent with linear model.
+
+---
+
+## Limitations & Threats (Descriptive Standards)
+
+Since we claim descriptive rather than causal inference, we acknowledge but do not attempt to resolve confounding:
+
+1. **Omitted Amenities / Confounders** (Primary threat)
+   - Crime, school quality, employment density, and local services are correlated with both distance and rent
+   - Our coefficient absorbs these effects; direction ambiguous
+
+2. **Structural Missingness**
+   - Distance data available only for ~60% of Victorian LGAs (metropolitan subset)
+   - Results do not generalize to rural Victoria
+
+3. **Measurement Error**
+   - Distance = centroid-to-centroid; within-LGA heterogeneity ignored
+   - Rent = LGA median; individual-level variation not captured
+   - Classical measurement error would attenuate the distance coefficient
+
+4. **Temporal Aggregation**
+   - No fixed effects; relies on between-LGA variation
+   - Within-LGA changes over time (e.g., gentrification) not modeled
+
+**Conclusion:**
+The negative distance-rent association is robust and genuinely descriptive—farther LGAs do have lower median rents. However, the mechanisms (distance → amenities → rent vs. distance ← amenities ← rent) remain unidentified and are beyond the scope of descriptive analysis.
+
+---
+
+## How to Reproduce
+
+### 1. **Environment Setup**
+```bash
+# Install Python 3.11+
+python --version
+
+# Create a virtual environment (optional but recommended)
+python -m venv venv
+source venv/bin/activate  # macOS/Linux
+# venv\Scripts\activate  # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### 2. **Raw Data**
+Ensure the following files exist in `Data/raw/`:
+- `median_rent_by_lga.xlsx`
+- `crime_by_lga.xlsx`
+- `distance_by_lga.xlsx`
+- `schools_by_lga.xlsx`
+- `health_by_lga.xlsx`
+
+(See `Data/raw/README.md` for sources)
+
+### 3. **Run Data Pipeline**
+```bash
+cd code
+python clean_rent_data.py
+python clean_crime_data.py
+python clean_distance_data.py
+python clean_health_data.py
+python clean_schools_data.py
+python clean_and_merge_data.py
+cd ..
+```
+Check `Data/clean/` for output CSVs.
+
+### 4. **Run Analysis**
+
+**Option A: Jupyter (Interactive)**
+```bash
+jupyter notebook EDA/eda_analysis.ipynb
+```
+- Run all cells to generate tables, plots, and regression results
+- Output displays inline
+
+**Option B: Python (Batch)**
+```bash
+python code/run_regression.py
+```
+- Produces `outputs/regression_results.txt` and `outputs/regression_results.csv`
+
+---
+
+## Software & Dependencies
+
+**Python Version:** 3.11+
+
+**Key Packages:**
+- `pandas` – data manipulation
+- `numpy` – numerical computing
+- `matplotlib`, `seaborn` – visualization
+- `statsmodels` – OLS regression, inference, clustered SE
+- `jupyter` – notebook interface
+
+See `requirements.txt` for full list.
+
+---
+
+## Files Generated
+
+After running the pipeline:
+
+```
+Data/clean/
+├── final_panel.csv              # Merged analysis dataset
+├── median_rent_clean.csv
+├── crime_clean.csv
+├── distance_clean.csv
+├── schools_clean.csv
+└── health_clean.csv
+
+outputs/
+├── regression_results.csv       # Coefficient table
+└── regression_results.txt       # Full OLS summary
+```
+
+---
+
+## Key Findings at a Glance
+
+| Finding | Value |
+|---------|-------|
+| Sample size (LGAs) | 31 LGAs with distance data |
+| Distance coefficient | -$1.45 / week / km |
+| t-statistic | -3.06 (p = 0.0047) |
+| R² | 0.244 |
+| Effect size (10 km farther) | -$14.50 / week (~$750/year) |
+| Semi-elasticity | -0.41% per km |
+| Conclusion | Significant negative distance gradient; descriptive analysis of between-LGA variation |
+
+---
+
+## Documentation
+
+- [Data Dictionary](Data/raw/README.md) – Raw data sources and variable definitions
+- [Notebook](EDA/eda_analysis.ipynb) – Full analysis, interpretation, and limitations
+- [Code](code/) – Cleaning and regression scripts with inline comments
 - pandas
 - numpy
 - matplotlib
