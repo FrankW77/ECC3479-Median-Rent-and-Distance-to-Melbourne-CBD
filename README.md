@@ -92,34 +92,36 @@ We estimate the unconditional correlation between distance to Melbourne CBD and 
 
 ## Econometric Specification
 
-**Main Model:**
-$$\text{median\_rent}_{i,t} = \beta_0 + \beta_1 \cdot \text{distance\_km}_{i} + \varepsilon_{i,t}$$
+**Main Model (between-LGA OLS):**
+$$\overline{\text{median\_rent}}_{i} = \beta_0 + \beta_1 \cdot \overline{\text{distance}}_{i} + \varepsilon_{i}$$
+
+where the overbar denotes the LGA-level mean after aggregating across years.
 
 **Key Details:**
-- **Outcome:** Median weekly rent (AUD)
-- **Regressor:** Straight-line distance from LGA centroid to Melbourne CBD (km)
-- **Sample:** All LGA-year observations in final_panel.csv with non-missing distance and rent
-- **N:** ~500 LGA-year observations across ~60 LGAs and ~10 years
-- **Standard Errors:** Clustered by LGA (to account for within-LGA correlation across years)
-- **Functional Form:** Linear, with log-linear robustness check
+- **Outcome:** Mean median weekly rent by LGA (AUD)
+- **Regressor:** Mean straight-line distance from LGA centroid to Melbourne CBD (km)
+- **Sample:** LGAs with both rent and distance data present after aggregation
+- **N:** 31 LGAs with distance data
+- **Standard Errors:** Plain OLS on one observation per LGA
+- **Functional Form:** Linear, with a log-linear robustness check in the notebook
 
 **Specification Rationale:**
-We prioritize transparency and sample size over adding controls with >50% missingness (crime, schools, health). The unconditional association is more interpretable for stakeholders and represents the marginal rent gradient across Victorian LGAs.
+We collapse the panel to the LGA level because distance does not vary within an LGA. This makes the coefficient easier to interpret as a between-LGA rent gradient and avoids giving the regression artificial within-LGA precision.
 
 ---
 
 ## Main Results Summary
 
 **Coefficient on Distance (Linear Model, N=31 LGAs):**
-- **-$1.45 per week per km** (95% CI: -$2.41 to -$0.53)
+- **-$1.45 per week per km** (95% CI: -$2.41 to -$0.48)
 - **t-stat:** -3.06, **p-value:** 0.0047
-- **R²:** 0.244 (distance explains ~24% of between-LGA variation in median rent)
+- **R²:** 0.244 (distance explains about 24% of between-LGA variation in mean median rent)
 
 **Interpretation:**
-For each additional kilometer from the CBD, median rent **decreases by approximately $1.45/week** (~$75/year). An LGA 10 km farther away has rent ~$14.50/week lower. This reflects a significant negative distance gradient in metropolitan Melbourne rents, though other factors explain the majority of rent variation across LGAs.
+For each additional kilometer from the CBD, mean median rent **decreases by approximately $1.45/week** (~$75/year). An LGA 10 km farther away has mean rent about $14.50/week lower.
 
 **Robustness (Log-linear model):**
-Each km farther reduces rent by **0.41% on average** (95% CI: -0.67% to -0.15%; t-stat: -3.14; p-value: 0.0038). Consistent with linear model.
+The notebook’s log-linear check shows a similarly negative gradient: about **-0.41% per km** (p = 0.0038).
 
 ---
 
@@ -177,14 +179,13 @@ Ensure the following files exist in `Data/raw/`:
 
 ### 3. **Run Data Pipeline**
 ```bash
-cd code
-python clean_rent_data.py
-python clean_crime_data.py
-python clean_distance_data.py
-python clean_health_data.py
-python clean_schools_data.py
-python clean_and_merge_data.py
-cd ..
+# Run these from the repository root
+python code/clean_rent_data.py
+python code/clean_crime_data.py
+python code/clean_distance_data.py
+python code/clean_health_data.py
+python code/clean_schools_data.py
+python code/clean_and_merge_data.py
 ```
 Check `Data/clean/` for output CSVs.
 
@@ -199,6 +200,7 @@ jupyter notebook EDA/eda_analysis.ipynb
 
 **Option B: Python (Batch)**
 ```bash
+# Run from the repository root
 python code/run_regression.py
 ```
 - Produces `outputs/regression_results.txt` and `outputs/regression_results.csv`
