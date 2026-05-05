@@ -13,13 +13,14 @@ This project investigates the relationship between proximity to Melbourne CBD an
 pip install -r requirements.txt
 
 # Open the Jupyter notebook
-jupyter notebook EDA/eda_analysis.ipynb
+jupyter notebook outputs/Primary\ Econometric\ Analysis.ipynb
 ```
 The notebook contains:
 - Data loading and structure checks
 - Exploratory data analysis (distributions, correlations)
 - Regression analysis with econometric specification
 - Explicit declaration of descriptive vs. causal ambition
+- A primary rent-distance figure with a fitted trend line
 - Formatted regression table and coefficient interpretation
 - Limitations and threats to inference
 
@@ -71,11 +72,10 @@ ECC3479-Median-Rent/
 │   └── run_regression.py            # Regression analysis script
 │
 ├── EDA/
-│   └── eda_analysis.ipynb           # PRIMARY ANALYSIS FILE
-│                                    # Exploratory Data Analysis + Regression
-│                                    # Spec, interpretation, limitations all included
+│   └── eda_analysis.ipynb           # Exploratory notebook (supporting analysis)
 │
 └── outputs/
+   ├── Primary Econometric Analysis.ipynb  # Primary analysis notebook
     ├── regression_results.csv       # Coefficient table (tidy format)
     └── regression_results.txt       # Full regression summary
 ```
@@ -122,6 +122,9 @@ For each additional kilometer from the CBD, mean median rent decreases by approx
 
 Robustness (Log-linear model):
 The notebook’s log-linear check shows a similarly negative gradient: about -0.41% per km (p = 0.0038).
+
+Primary figure:
+- Scatter plot of mean median rent against straight-line distance to Melbourne CBD, with a fitted regression line
 
 ---
 
@@ -193,7 +196,7 @@ Check `Data/clean/` for output CSVs.
 
 **Option A: Jupyter (Interactive)**
 ```bash
-jupyter notebook EDA/eda_analysis.ipynb
+jupyter notebook outputs/Primary\ Econometric\ Analysis.ipynb
 ```
 - Run all cells to generate tables, plots, and regression results
 - Output displays inline
@@ -236,6 +239,7 @@ Data/clean/
 └── health_clean.csv
 
 outputs/
+├── Primary Econometric Analysis.ipynb  # Main notebook with tables, figure, and interpretation
 ├── regression_results.csv       # Coefficient table
 └── regression_results.txt       # Full OLS summary
 ```
