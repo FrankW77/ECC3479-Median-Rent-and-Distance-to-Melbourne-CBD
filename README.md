@@ -5,9 +5,9 @@ This project examines how median rental prices vary with distance from Melbourne
 
 ---
 
-## Quick Start: Run the Analysis
+## Run the Analysis
 
-### Option 1: Jupyter Notebook (Recommended for exploratory review)
+### Jupyter Notebook
 ```bash
 # Install dependencies
 pip install -r requirements.txt
@@ -23,23 +23,6 @@ The notebook contains:
 - A primary rent-distance figure with a fitted trend line
 - Formatted regression table and coefficient interpretation
 - Limitations and threats to inference
-
-### Option 2: Command-line pipeline (Reproducible batch processing)
-```bash
-# 1. Clean individual datasets
-python code/clean_rent_data.py
-python code/clean_schools_data.py
-python code/clean_health_data.py
-python code/clean_crime_data.py
-python code/clean_distance_data.py
-
-# 2. Merge all cleaned data
-python code/clean_and_merge_data.py
-
-# 3. Run regression analysis
-python code/run_regression.py
-```
-Results are written to `outputs/` directory.
 
 ---
 
