@@ -1,7 +1,7 @@
 # ECC3479 – Rental Prices and Distance to Melbourne CBD
 
 ## Overview
-This project investigates the relationship between proximity to Melbourne CBD and median rental prices across metropolitan LGAs. The analysis is descriptive: we report conditional correlations and associations, not causal treatment effects.
+This project examines how median rental prices vary with distance from Melbourne CBD across metropolitan LGAs. The analysis is descriptive: it summarizes associations rather than estimating a causal effect.
 
 ---
 
@@ -76,8 +76,8 @@ ECC3479-Median-Rent/
 │
 └── outputs/
    ├── Primary Econometric Analysis.ipynb  # Primary analysis notebook
-    ├── regression_results.csv       # Coefficient table (tidy format)
-    └── regression_results.txt       # Full regression summary
+   ├── regression_results.csv       # Coefficient table (tidy format)
+   └── regression_results.txt       # Full regression summary
 ```
 
 ---
@@ -86,7 +86,7 @@ ECC3479-Median-Rent/
 
 Analysis Type: DESCRIPTIVE
 
-We estimate the unconditional correlation between distance to Melbourne CBD and median rental prices. We do not attempt to identify a causal treatment effect. This is a straightforward report of associations across Local Government Areas.
+We estimate the association between distance to Melbourne CBD and median rental prices. We do not attempt to identify a causal treatment effect.
 
 ---
 
@@ -120,9 +120,9 @@ The main result is a negative rent-distance gradient at the LGA level.
 
 ---
 
-## Limitations & Threats (Descriptive Standards)
+## Limitations
 
-Since we claim descriptive rather than causal inference, we acknowledge but do not attempt to resolve confounding:
+Since the goal is descriptive rather than causal, the main limitations are confounding, sample coverage, and measurement error:
 
 1. **Omitted Amenities / Confounders** (Primary threat)
    - Crime, school quality, employment density, and local services are correlated with both distance and rent
@@ -142,7 +142,7 @@ Since we claim descriptive rather than causal inference, we acknowledge but do n
    - Within-LGA changes over time (e.g., gentrification) not modeled
 
 Conclusion:
-The negative distance-rent association is robust and genuinely descriptive—farther LGAs do have lower median rents. However, the mechanisms (distance → amenities → rent vs. distance ← amenities ← rent) remain unidentified and are beyond the scope of descriptive analysis.
+The negative distance-rent association is robust: farther LGAs do have lower median rents. What remains unidentified is the mechanism behind that pattern.
 
 ---
 
@@ -210,7 +210,7 @@ python code/run_regression.py
 - `pandas` – data manipulation
 - `numpy` – numerical computing
 - `matplotlib`, `seaborn` – visualization
-- `statsmodels` – OLS regression, inference, clustered SE
+- `statsmodels` – OLS regression and inference
 - `jupyter` – notebook interface
 
 See `requirements.txt` for full list.
@@ -250,4 +250,7 @@ Key outputs:
 | Sample size (LGAs) | 31 |
 | Distance coefficient | -$1.45 / week / km |
 | R² | 0.244 |
+| Log-linear effect | -0.41% per km |
 | Main takeaway | Farther LGAs have lower median rents in the descriptive LGA-level analysis |
+
+
