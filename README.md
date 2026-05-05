@@ -75,21 +75,21 @@ We estimate the association between distance to Melbourne CBD and median rental 
 
 ## Econometric Specification
 
-Main Model (between-LGA OLS):
-$$\overline{\text{median\_rent}}_{i} = \beta_0 + \beta_1 \cdot \overline{\text{distance}}_{i} + \varepsilon_{i}$$
+Main Model (between-LGA OLS with controls):
+$$\overline{\text{median\_rent}}_{i} = \beta_0 + \beta_1 \cdot \overline{\text{distance}}_{i} + \beta_2 \cdot \overline{\text{crime}}_{i} + \beta_3 \cdot \overline{\text{schools}}_{i} + \beta_4 \cdot \overline{\text{health}}_{i} + \varepsilon_{i}$$
 
 where the overbar denotes the LGA-level mean after aggregating across years.
 
 Key Details:
 - Outcome: Mean median weekly rent by LGA (AUD)
-- Regressor: Mean straight-line distance from LGA centroid to Melbourne CBD (km)
-- Sample: LGAs with both rent and distance data present after aggregation
-- N: 31 LGAs with distance data
+- Key Regressor: Mean straight-line distance from LGA centroid to Melbourne CBD (km)
+- Controls: Mean offence count (crime), mean total schools, mean GP clinics per 1000 residents (health access)
+- Sample: 31 LGAs with complete data for all variables
 - Standard Errors: Plain OLS on one observation per LGA
 - Functional Form: Linear, with a log-linear robustness check in the notebook
 
 Specification Rationale:
-We collapse the panel to the LGA level because distance does not vary within an LGA. This makes the coefficient easier to interpret as a between-LGA rent gradient and avoids giving the regression artificial within-LGA precision.
+We collapse the panel to the LGA level because distance does not vary within an LGA. We include controls for crime, schools, and health access because these amenities are plausible drivers of rental prices independent of distance and are correlated with both distance and rent. At the LGA-level aggregation, all 31 LGAs with distance data also have complete observations for these control variables, so including them does not reduce sample size.
 
 ---
 

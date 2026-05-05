@@ -14,27 +14,33 @@ def run_regression():
     print("Missing values per column:")
     print(df.isna().sum())
 
-    # Collapse the panel to the LGA level so the regression matches the notebook.
+    # Collapse the panel to the LGA level with controls to match the notebook.
     df = (
         df.groupby("lga_name", as_index=False)
         .agg(
             {
                 "median_rent": "mean",
                 "straight_line_km": "mean",
+                "offence_count": "mean",
+                "total_schools": "mean",
+                "gp_clinics_per_1000": "mean",
                 "year": "count",
             }
         )
         .rename(columns={"year": "n_obs"})
-        .dropna(subset=["straight_line_km"])
+        .dropna()
     )
 
     print()
-    print(f"LGA-level sample size: {len(df)}")
-    print(f"Mean median rent: {df['median_rent'].mean():.2f}")
-    print(f"Mean straight-line distance: {df['straight_line_km'].mean():.2f}")
+    print(f"LGA-level sample size (with complete data): {len(df)}")
+    print(f"Mean median rent: ${df['median_rent'].mean():.2f}/week")
+    print(f"Mean straight-line distance: {df['straight_line_km'].mean():.2f} km")
+    print(f"Mean offence count: {df['offence_count'].mean():.1f}")
+    print(f"Mean total schools: {df['total_schools'].mean():.1f}")
+    print(f"Mean GP clinics per 1000: {df['gp_clinics_per_1000'].mean():.3f}")
 
     y = df["median_rent"]
-    X = sm.add_constant(df[["straight_line_km"]])
+    X = sm.add_constant(df[["straight_line_km", "offence_count", "total_schools", "gp_clinics_per_1000"]])
     model = sm.OLS(y, X).fit()
 
     results_df = pd.DataFrame(
