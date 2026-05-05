@@ -95,21 +95,25 @@ We collapse the panel to the LGA level because distance does not vary within an 
 
 ## Main Results Summary
 
-The main result is a negative rent-distance gradient at the LGA level.
+The analysis controls for crime (offence count), school availability (total schools), and health access (GP clinics per 1000 residents) at the LGA level.
 
-- Linear model: -$1.45 per week per km (p = 0.0047, R² = 0.244)
-- Log-linear check: about -0.41% per km (p = 0.0038)
-- Figure: scatter plot of mean median rent against straight-line distance to Melbourne CBD with a fitted regression line
+**With controls:**
+- Linear model: -$0.82 per week per km (p = 0.161, not significant)
+- Log-linear check: about -0.25% per km (p = 0.129, not significant)
+- R² = 0.355 (captures ~35.5% of between-LGA rent variation)
+- Sample: 31 LGAs with complete data
+
+**Key finding:** When amenities are held constant, the distance effect is substantially weaker and loses statistical significance, suggesting that much of the original negative association was driven by confounding with local amenities rather than distance per se.
 
 ---
 
 ## Limitations
 
-Since the goal is descriptive rather than causal, the main limitations are confounding, sample coverage, and measurement error:
+Since the analysis includes controls for major amenity variables, the main remaining limitations are measurement error and structural scope:
 
-1. **Omitted Amenities / Confounders** (Primary threat)
-   - Crime, school quality, employment density, and local services are correlated with both distance and rent
-   - Our coefficient absorbs these effects; direction ambiguous
+1. **Omitted Amenities** (Residual threat)
+   - Employment density, transport quality, and other local services may still be correlated with distance and rent
+   - Controlled variables (crime, schools, health) partially address this but do not fully resolve confounding
 
 2. **Structural Missingness**
    - Distance data available only for ~60% of Victorian LGAs (metropolitan subset)
@@ -231,9 +235,10 @@ Key outputs:
 | Finding | Value |
 |---------|-------|
 | Sample size (LGAs) | 31 |
-| Distance coefficient | -$1.45 / week / km |
-| R² | 0.244 |
-| Log-linear effect | -0.41% per km |
-| Main takeaway | Farther LGAs have lower median rents in the descriptive LGA-level analysis |
+| Distance coefficient (with controls) | -$0.82 / week / km |
+| R² | 0.355 |
+| Log-linear effect | -0.25% per km |
+| Statistical significance (p-value) | 0.161 (not significant) |
+| Main takeaway | Distance effect becomes weaker and insignificant after controlling for crime, schools, and health amenities |
 
 
