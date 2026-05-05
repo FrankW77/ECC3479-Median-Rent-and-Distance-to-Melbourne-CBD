@@ -138,16 +138,18 @@ The negative distance-rent association is robust: farther LGAs do have lower med
 ### 1. **Environment Setup**
 ```bash
 # Install Python 3.11+
-python --version
+python3 --version
 
 # Create a virtual environment (optional but recommended)
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate  # macOS/Linux
 # venv\Scripts\activate  # Windows
 
 # Install dependencies
 pip install -r requirements.txt
 ```
+Activate the virtual environment first, then run the remaining commands with `python3`.
+This installs the packages needed to read the Excel source files and to launch the notebook interface.
 
 ### 2. **Raw Data**
 Ensure the following files exist in `Data/raw/`:
@@ -162,30 +164,23 @@ Ensure the following files exist in `Data/raw/`:
 ### 3. **Run Data Pipeline**
 ```bash
 # Run these from the repository root
-python code/clean_rent_data.py
-python code/clean_crime_data.py
-python code/clean_distance_data.py
-python code/clean_health_data.py
-python code/clean_schools_data.py
-python code/clean_and_merge_data.py
+python3 code/clean_rent_data.py
+python3 code/clean_crime_data.py
+python3 code/clean_distance_data.py
+python3 code/clean_health_data.py
+python3 code/clean_schools_data.py
+python3 code/clean_and_merge_data.py
 ```
 Check `Data/clean/` for output CSVs.
 
 ### 4. **Run Analysis**
 
-**Option A: Jupyter (Interactive)**
+**Jupyter notebook**
 ```bash
 jupyter notebook outputs/Primary\ Econometric\ Analysis.ipynb
 ```
 - Run all cells to generate tables, plots, and regression results
 - Output displays inline
-
-**Option B: Python (Batch)**
-```bash
-# Run from the repository root
-python code/run_regression.py
-```
-- Produces `outputs/regression_results.txt` and `outputs/regression_results.csv`
 
 ---
 
@@ -199,6 +194,7 @@ python code/run_regression.py
 - `matplotlib`, `seaborn` – visualization
 - `statsmodels` – OLS regression and inference
 - `jupyter` – notebook interface
+- `openpyxl` – Excel file reader used by the cleaning scripts
 
 See `requirements.txt` for full list.
 
