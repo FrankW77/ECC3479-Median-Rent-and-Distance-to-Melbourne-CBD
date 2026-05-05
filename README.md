@@ -112,19 +112,11 @@ We collapse the panel to the LGA level because distance does not vary within an 
 
 ## Main Results Summary
 
-Coefficient on Distance (Linear Model, N=31 LGAs):
-- -$1.45 per week per km (95% CI: -$2.41 to -$0.48)
-- t-stat: -3.06, p-value: 0.0047
-- R²: 0.244 (distance explains about 24% of between-LGA variation in mean median rent)
+The main result is a negative rent-distance gradient at the LGA level.
 
-Interpretation:
-For each additional kilometer from the CBD, mean median rent decreases by approximately $1.45/week (~$75/year). An LGA 10 km farther away has mean rent about $14.50/week lower.
-
-Robustness (Log-linear model):
-The notebook’s log-linear check shows a similarly negative gradient: about -0.41% per km (p = 0.0038).
-
-Primary figure:
-- Scatter plot of mean median rent against straight-line distance to Melbourne CBD, with a fitted regression line
+- Linear model: -$1.45 per week per km (p = 0.0047, R² = 0.244)
+- Log-linear check: about -0.41% per km (p = 0.0038)
+- Figure: scatter plot of mean median rent against straight-line distance to Melbourne CBD with a fitted regression line
 
 ---
 
@@ -244,16 +236,18 @@ outputs/
 └── regression_results.txt       # Full OLS summary
 ```
 
+Key outputs:
+- Primary Econometric Analysis.ipynb: main notebook with the descriptive analysis, regression table, and figure
+- regression_results.csv: tidy coefficient table
+- regression_results.txt: full regression summary
+
 ---
 
 ## Key Findings at a Glance
 
 | Finding | Value |
 |---------|-------|
-| Sample size (LGAs) | 31 LGAs with distance data |
+| Sample size (LGAs) | 31 |
 | Distance coefficient | -$1.45 / week / km |
-| t-statistic | -3.06 (p = 0.0047) |
 | R² | 0.244 |
-| Effect size (10 km farther) | -$14.50 / week (~$750/year) |
-| Semi-elasticity | -0.41% per km |
-| Conclusion | Significant negative distance gradient; descriptive analysis of between-LGA variation |
+| Main takeaway | Farther LGAs have lower median rents in the descriptive LGA-level analysis |
