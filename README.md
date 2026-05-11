@@ -59,6 +59,9 @@ ECC3479-Median-Rent/
 │
 └── outputs/
    ├── Primary Econometric Analysis.ipynb  # Primary analysis notebook
+   ├── robustness_analysis/          # Robustness notebook and exported table
+   │   ├── robustness_analysis.ipynb
+   │   └── robustness_table.csv
    ├── regression_results.csv       # Coefficient table (tidy format)
    └── regression_results.txt       # Full regression summary
 ```
@@ -103,7 +106,24 @@ The analysis controls for crime (offence count), school availability (total scho
 - R² = 0.355 (captures ~35.5% of between-LGA rent variation)
 - Sample: 31 LGAs with complete data
 
-**Key finding:** When amenities are held constant, the distance effect is substantially weaker and loses statistical significance, suggesting that much of the original negative association was driven by confounding with local amenities rather than distance per se.
+**Key finding:** The negative distance association weakens materially once amenities are held constant and is not statistically significant in the preferred specification. That pattern suggests the raw gradient is partly driven by correlated local amenities rather than distance alone.
+
+---
+
+## Robustness Analysis
+
+The repository now includes a dedicated robustness notebook that runs end-to-end on the clean data:
+
+`outputs/robustness_analysis/robustness_analysis.ipynb`
+
+It reports the preferred specification alongside checks for:
+- no controls
+- extended controls
+- sample trimming by distance
+- log-rent functional form
+- HC3 robust standard errors
+
+The notebook also exports a reusable table to `outputs/robustness_analysis/robustness_table.csv`.
 
 ---
 
@@ -129,7 +149,7 @@ Since the analysis includes controls for major amenity variables, the main remai
    - Within-LGA changes over time (e.g., gentrification) not modeled
 
 Conclusion:
-The negative distance-rent association is robust: farther LGAs do have lower median rents. What remains unidentified is the mechanism behind that pattern.
+The negative distance-rent association is present in simple specifications, but it is sensitive to the control set and becomes much weaker once richer amenity controls are added.
 
 ---
 
@@ -178,8 +198,10 @@ Check `Data/clean/` for output CSVs.
 **Jupyter notebook**
 ```bash
 jupyter notebook outputs/Primary\ Econometric\ Analysis.ipynb
+jupyter notebook outputs/robustness_analysis/robustness_analysis.ipynb
 ```
-- Run all cells to generate tables, plots, and regression results
+- Run the primary notebook first, then the robustness notebook
+- Run all cells to generate tables, plots, regression results, and robustness checks
 - Output displays inline
 
 ---
@@ -215,12 +237,17 @@ Data/clean/
 
 outputs/
 ├── Primary Econometric Analysis.ipynb  # Main notebook with tables, figure, and interpretation
+├── robustness_analysis/          # Robustness notebook and exported table
+│   ├── robustness_analysis.ipynb      # Robustness notebook
+│   └── robustness_table.csv           # Exported robustness table
 ├── regression_results.csv       # Coefficient table
 └── regression_results.txt       # Full OLS summary
 ```
 
 Key outputs:
 - Primary Econometric Analysis.ipynb: main notebook with the descriptive analysis, regression table, and figure
+- robustness_analysis.ipynb: robustness checks and interpretation
+- robustness_table.csv: exported side-by-side robustness table
 - regression_results.csv: tidy coefficient table
 - regression_results.txt: full regression summary
 
@@ -235,6 +262,6 @@ Key outputs:
 | R² | 0.355 |
 | Log-linear effect | -0.25% per km |
 | Statistical significance (p-value) | 0.161 (not significant) |
-| Main takeaway | Distance effect becomes weaker and insignificant after controlling for crime, schools, and health amenities |
+| Main takeaway | Distance remains negative in simple specs but attenuates once controls are added |
 
 
