@@ -41,7 +41,7 @@ jupyter notebook outputs/robustness_analysis/robustness_analysis.ipynb
 Robustness Analysis Notebook contains a brief restatement of the main result and a focused set of checks grouped by family:
 
 - Alternative controls: minimal, preferred, kitchen-sink
-- Alternative samples: drop high-leverage LGAs, drop influential observations
+- Alternative samples: drop high-leverage LGAs
 - Functional form: log outcome check
 - Placebo: permutation test
 
@@ -83,9 +83,12 @@ ECC3479-Median-Rent/
 │
 └── outputs/
    ├── Primary Econometric Analysis.ipynb  # Primary analysis notebook
-   ├── robustness_analysis/          # Robustness notebook and exported table
+   ├── robustness_analysis/          # Robustness notebook, exported table, and plots
    │   ├── robustness_analysis.ipynb
-   │   └── robustness_table.csv
+   │   ├── robustness_table_framework.csv
+   │   ├── robustness_summary.json
+   │   ├── robustness_plot.png
+   │   └── permutation_diagnostics.png
    ├── regression_results.csv       # Coefficient table
    └── regression_results.txt       # Full regression summary
 ```
@@ -141,11 +144,11 @@ The analysis controls for crime (offence count), school availability (total scho
 It reports the preferred specification alongside checks for:
 - no controls
 - extended controls
-- sample trimming by distance
+- drop high-leverage LGAs
 - log-rent functional form
-- HC3 robust standard errors
+- permutation placebo
 
-The notebook also exports a reusable table to `outputs/robustness_analysis/robustness_table.csv`.
+The notebook also exports a reusable table to `outputs/robustness_analysis/robustness_table_framework.csv`.
 
 ---
 
@@ -259,9 +262,12 @@ Data/clean/
 
 outputs/
 ├── Primary Econometric Analysis.ipynb  # Main notebook with tables, figure, and interpretation
-├── robustness_analysis/          # Robustness notebook and exported table
+├── robustness_analysis/          # Robustness notebook, exported table, and plots
 │   ├── robustness_analysis.ipynb      # Robustness notebook
-│   └── robustness_table.csv           # Exported robustness table
+│   ├── robustness_table_framework.csv  # Exported robustness table
+│   ├── robustness_summary.json        # Concise summary statistics
+│   ├── robustness_plot.png             # Forest plot
+│   └── permutation_diagnostics.png     # Permutation diagnostics
 ├── regression_results.csv       # Coefficient table
 └── regression_results.txt       # Full OLS summary
 ```
@@ -269,7 +275,7 @@ outputs/
 Key outputs:
 - Primary Econometric Analysis.ipynb: main notebook with the descriptive analysis, regression table, and figure
 - robustness_analysis.ipynb: robustness checks and interpretation
-- robustness_table.csv: exported side-by-side robustness table
+- robustness_table_framework.csv: exported side-by-side robustness table
 - regression_results.csv: tidy coefficient table
 - regression_results.txt: full regression summary
 
