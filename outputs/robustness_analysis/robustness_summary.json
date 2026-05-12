@@ -1,0 +1,10 @@
+{
+  "main_coefficient": -0.8174181133099763,
+  "main_pvalue": 0.12153550830125184,
+  "main_se": 0.527924908314686,
+  "total_checks": 6,
+  "same_sign_count": 6,
+  "same_sign_rate": 1.0,
+  "perm_pvalue": 0.095,
+  "assessment": "Consistent in direction but imprecisely estimated (suggestive evidence)"
+}

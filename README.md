@@ -5,25 +5,49 @@ This project examines how median rental prices vary with distance from Melbourne
 
 ---
 
-## Run the Analysis
+## Complete Analysis Pipeline
 
-### Jupyter Notebook
+The analysis proceeds in three stages: data cleaning, primary analysis, and robustness checks. This repository contains the scripts and notebooks required to reproduce the results.
+
+### Stage 1: Data Cleaning and Preparation
+```bash
+cd code/
+python clean_rent_data.py
+python clean_crime_data.py
+python clean_distance_data.py
+python clean_schools_data.py
+python clean_health_data.py
+python clean_and_merge_data.py
+```
+Output: `Data/clean/final_panel.csv` (LGA-year level panel with all variables)
+
+### Stage 2: Primary Econometric Analysis
 ```bash
 # Install dependencies
 pip install -r requirements.txt
 
-# Open the Jupyter notebook
+# Open and run the primary analysis notebook
 jupyter notebook outputs/Primary\ Econometric\ Analysis.ipynb
 ```
-The notebook contains:
-- Data loading and structure checks
-- Exploratory data analysis (distributions, correlations)
-- Regression analysis with econometric specification
-- Explicit declaration of descriptive vs. causal ambition
-- A primary rent-distance figure with a fitted trend line
-- Formatted regression table and coefficient interpretation
-- Limitations and threats to inference
+Primary Analysis Notebook contains data loading, exploratory analysis, and the main between-LGA regression. The analysis is descriptive and does not claim causation.
 
+Main result: β ≈ -0.82 AUD/km (HC3 SE ≈ 0.53, p ≈ 0.12). The estimate is suggestive but imprecise.
+
+### Stage 3: Robustness Analysis (Week 10 Deliverable)
+```bash
+# Open and run the robustness analysis notebook
+jupyter notebook outputs/robustness_analysis/robustness_analysis.ipynb
+```
+Robustness Analysis Notebook contains a brief restatement of the main result and a focused set of checks grouped by family:
+
+- Alternative controls: minimal, preferred, kitchen-sink
+- Alternative samples: drop high-leverage LGAs, drop influential observations
+- Functional form: log outcome check
+- Placebo: permutation test
+
+The notebook exports a robustness table and diagnostic plots. The negative distance–rent association is consistent in sign across checks but imprecisely estimated. See the robustness notebook for the full table and interpretation.
+
+If you'd like a one-page summary suitable for slides, I can produce that next.
 ---
 
 ## Repository Structure
@@ -62,7 +86,7 @@ ECC3479-Median-Rent/
    ├── robustness_analysis/          # Robustness notebook and exported table
    │   ├── robustness_analysis.ipynb
    │   └── robustness_table.csv
-   ├── regression_results.csv       # Coefficient table (tidy format)
+   ├── regression_results.csv       # Coefficient table
    └── regression_results.txt       # Full regression summary
 ```
 
@@ -111,8 +135,6 @@ The analysis controls for crime (offence count), school availability (total scho
 ---
 
 ## Robustness Analysis
-
-The repository now includes a dedicated robustness notebook that runs end-to-end on the clean data:
 
 `outputs/robustness_analysis/robustness_analysis.ipynb`
 
