@@ -36,8 +36,6 @@ def clean_schools_data():
     CLEAN_DIR.mkdir(parents=True, exist_ok=True)
     df.to_csv(CLEAN_DIR / "schools_clean.csv", index=False)
 
-    print("✓ Clean schools dataset saved to Data/clean/schools_clean.csv")
-
 
 if __name__ == "__main__":
     clean_schools_data()

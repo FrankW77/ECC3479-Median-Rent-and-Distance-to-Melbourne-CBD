@@ -54,8 +54,6 @@ def clean_health_data():
     CLEAN_DIR.mkdir(parents=True, exist_ok=True)
     df.to_csv(CLEAN_DIR / "health_clean.csv", index=False)
 
-    print("✓ Clean health dataset saved to Data/clean/health_clean.csv")
-
 
 if __name__ == "__main__":
     clean_health_data()

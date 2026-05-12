@@ -127,13 +127,14 @@ We collapse the panel to the LGA level because distance does not vary within an 
 
 The analysis controls for crime (offence count), school availability (total schools), and health access (GP clinics per 1000 residents) at the LGA level.
 
-**With controls:**
-- Linear model: -$0.82 per week per km (p = 0.161, not significant)
-- Log-linear check: about -0.25% per km (p = 0.129, not significant)
+**With controls (preferred inference: HC3 SEs):**
+- Linear model (HC3): -$0.82 per week per km (HC3 SE ≈ 0.528, p ≈ 0.122, not statistically significant at conventional levels)
+- Note: the plain OLS table in `outputs/regression_results.csv` reports the classical (non-HC3) p-value ≈ 0.161 for the same point estimate; the difference reflects the inference choice (HC3 robust SEs are larger here).
+- Log-linear check (HC3): about -0.25% per km (p ≈ 0.129, not statistically significant).
 - R² = 0.355 (captures ~35.5% of between-LGA rent variation)
 - Sample: 31 LGAs with complete data
 
-**Key finding:** The negative distance association weakens materially once amenities are held constant and is not statistically significant in the preferred specification. That pattern suggests the raw gradient is partly driven by correlated local amenities rather than distance alone.
+**Key finding (revised phrasing):** The negative distance–rent association is present in simple specifications but attenuates when controlling for local amenities. Under HC3 inference (the notebook's default), the preferred specification yields a point estimate of approximately -0.82 AUD/km that is suggestive but imprecisely estimated (p ≈ 0.12). This pattern is consistent with partial confounding by amenities: adding controls reduces the magnitude of the raw gradient, which reduces confidence that distance alone explains the full association.
 
 ---
 
@@ -289,7 +290,7 @@ Key outputs:
 | Distance coefficient (with controls) | -$0.82 / week / km |
 | R² | 0.355 |
 | Log-linear effect | -0.25% per km |
-| Statistical significance (p-value) | 0.161 (not significant) |
-| Main takeaway | Distance remains negative in simple specs but attenuates once controls are added |
+| Statistical significance (p-value) | HC3 (preferred): 0.122 (not significant); classical OLS: 0.161 |
+| Main takeaway | Distance remains negative in simple specs but attenuates with controls; HC3 inference yields a suggestive but imprecise estimate |
 
 

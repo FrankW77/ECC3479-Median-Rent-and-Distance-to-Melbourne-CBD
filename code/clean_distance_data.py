@@ -59,7 +59,6 @@ def clean_distance_data():
 
     CLEAN_DIR.mkdir(parents=True, exist_ok=True)
     df.to_csv(CLEAN_DIR / "distance_clean.csv", index=False)
-    print("✓ Clean distance dataset saved to Data/clean/distance_clean.csv")
 
 
 if __name__ == "__main__":

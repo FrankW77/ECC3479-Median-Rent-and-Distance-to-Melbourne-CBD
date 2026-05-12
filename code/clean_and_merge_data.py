@@ -112,13 +112,12 @@ def clean_and_merge():
     # 6. Sort and save
     # -----------------------------------
     merged = merged.sort_values(["lga_name", "year"]).reset_index(drop=True)
-    merged.to_csv(CLEAN_DIR / "final_panel.csv", index=False)
 
     missing_pct = (merged.isna().mean() * 100).sort_values(ascending=False)
     print("\nMissing values in final merged panel (%):")
     print(missing_pct.round(2).to_string())
 
-    print("\n✓ Final merged dataset saved to Data/clean/final_panel.csv")
+    merged.to_csv(CLEAN_DIR / "final_panel.csv", index=False)
 
 
 if __name__ == "__main__":

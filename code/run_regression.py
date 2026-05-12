@@ -62,8 +62,6 @@ def run_regression():
 
     results_df.to_csv(OUTPUT_DIR / "regression_results.csv", index=False)
 
-    print("✓ Regression results saved to outputs/regression_results.txt and outputs/regression_results.csv")
-
 
 if __name__ == "__main__":
     run_regression()

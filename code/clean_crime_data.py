@@ -49,8 +49,6 @@ def clean_crime_data():
     CLEAN_DIR.mkdir(parents=True, exist_ok=True)
     df.to_csv(CLEAN_DIR / "crime_clean.csv", index=False)
 
-    print("✓ Clean crime dataset saved to Data/clean/crime_clean.csv")
-
 
 if __name__ == "__main__":
     clean_crime_data()

@@ -52,8 +52,6 @@ def clean_rent_data():
     CLEAN_DIR.mkdir(parents=True, exist_ok=True)
     df_final.to_csv(CLEAN_DIR / "median_rent_clean.csv", index=False)
 
-    print("✓ Clean rental dataset saved to Data/clean/median_rent_clean.csv")
-
 
 if __name__ == "__main__":
     clean_rent_data()
