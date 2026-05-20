@@ -280,6 +280,17 @@ Key outputs:
 - regression_results.csv: tidy coefficient table
 - regression_results.txt: full regression summary
 
+**Table & Figure Mapping**
+- **Table 1:** Regression results with controls — produced by `outputs/Primary Econometric Analysis.ipynb` ([outputs/Primary Econometric Analysis.ipynb](outputs/Primary%20Econometric%20Analysis.ipynb)).
+- **Regression table (CSV):** tidy coefficient table `outputs/regression_results.csv` — produced by `code/run_regression.py` ([code/run_regression.py](code/run_regression.py)).
+- **Regression summary (text):** `outputs/regression_results.txt` — produced by `code/run_regression.py` ([code/run_regression.py](code/run_regression.py)).
+- **Figure 1:** Mean Rent vs. Distance from CBD (scatter + regression line) — produced by `outputs/Primary Econometric Analysis.ipynb` ([outputs/Primary Econometric Analysis.ipynb](outputs/Primary%20Econometric%20Analysis.ipynb)).
+- **Robustness table:** `outputs/robustness_analysis/robustness_table_framework.csv` — produced by `outputs/robustness_analysis/robustness_analysis.ipynb` ([outputs/robustness_analysis/robustness_analysis.ipynb](outputs/robustness_analysis/robustness_analysis.ipynb)).
+- **Robustness plot:** `outputs/robustness_analysis/robustness_plot.png` — produced by `outputs/robustness_analysis/robustness_analysis.ipynb` ([outputs/robustness_analysis/robustness_analysis.ipynb](outputs/robustness_analysis/robustness_analysis.ipynb)).
+- **Permutation diagnostics:** `outputs/robustness_analysis/permutation_diagnostics.png` — produced by `outputs/robustness_analysis/robustness_analysis.ipynb` ([outputs/robustness_analysis/robustness_analysis.ipynb](outputs/robustness_analysis/robustness_analysis.ipynb)).
+- **Final merged dataset:** `Data/clean/final_panel.csv` — produced by `code/clean_and_merge_data.py` ([code/clean_and_merge_data.py](code/clean_and_merge_data.py)).
+- **Cleaning outputs:** `Data/clean/median_rent_clean.csv`, `crime_clean.csv`, `distance_clean.csv`, `schools_clean.csv`, `health_clean.csv` — produced by the corresponding scripts in `code/` (`clean_rent_data.py`, `clean_crime_data.py`, `clean_distance_data.py`, `clean_schools_data.py`, `clean_health_data.py`) (see [code/](code/)).
+
 ---
 
 ## Key Findings at a Glance
