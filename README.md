@@ -31,7 +31,7 @@ jupyter notebook outputs/Primary\ Econometric\ Analysis.ipynb
 ```
 Primary Analysis Notebook contains data loading, exploratory analysis, and the main between-LGA regression. The analysis is descriptive and does not claim causation.
 
-Main result: β ≈ -0.82 AUD/km (HC3 SE ≈ 0.53, p ≈ 0.12). The estimate is suggestive but imprecise.
+Main result: β ≈ -0.82 AUD/km (HC3 SE ≈ 0.53, p ≈ 0.13). The estimate is suggestive but imprecise.
 
 ### Stage 3: Robustness Analysis (Week 10 Deliverable)
 ```bash
@@ -127,14 +127,14 @@ We collapse the panel to the LGA level because distance does not vary within an 
 
 The analysis controls for crime (offence count), school availability (total schools), and health access (GP clinics per 1000 residents) at the LGA level.
 
-**With controls (preferred inference: HC3 SEs):**
-- Linear model (HC3): -$0.82 per week per km (HC3 SE ≈ 0.528, p ≈ 0.122, not statistically significant at conventional levels)
-- Note: the plain OLS table in `outputs/regression_results.csv` reports the classical (non-HC3) p-value ≈ 0.161 for the same point estimate; the difference reflects the inference choice (HC3 robust SEs are larger here).
+- **With controls (preferred inference: HC3 SEs):**
+- Linear model (HC3): -$0.82 per week per km (HC3 SE ≈ 0.528, p ≈ 0.134, not statistically significant at conventional levels)
+- Note: the Primary Econometric Analysis notebook also prints a classical OLS table (classical p-value ≈ 0.161); `code/run_regression.py` now writes the HC3-robust results to `outputs/regression_results.csv` and `outputs/regression_results.txt`.
 - Log-linear check (HC3): about -0.25% per km (p ≈ 0.129, not statistically significant).
 - R² = 0.355 (captures ~35.5% of between-LGA rent variation)
 - Sample: 31 LGAs with complete data
 
-**Key finding (revised phrasing):** The negative distance–rent association is present in simple specifications but attenuates when controlling for local amenities. Under HC3 inference (the notebook's default), the preferred specification yields a point estimate of approximately -0.82 AUD/km that is suggestive but imprecisely estimated (p ≈ 0.12). This pattern is consistent with partial confounding by amenities: adding controls reduces the magnitude of the raw gradient, which reduces confidence that distance alone explains the full association.
+**Key finding (revised phrasing):** The negative distance–rent association is present in simple specifications but attenuates when controlling for local amenities. Under HC3 inference (the notebook's default), the preferred specification yields a point estimate of approximately -0.82 AUD/km that is suggestive but imprecisely estimated (p ≈ 0.13). This pattern is consistent with partial confounding by amenities: adding controls reduces the magnitude of the raw gradient, which reduces confidence that distance alone explains the full association.
 
 ---
 
