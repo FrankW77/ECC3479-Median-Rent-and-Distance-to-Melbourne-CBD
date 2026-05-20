@@ -41,24 +41,31 @@ def run_regression():
 
     y = df["median_rent"]
     X = sm.add_constant(df[["straight_line_km", "offence_count", "total_schools", "gp_clinics_per_1000"]])
+    # Fit OLS and compute HC3 robust covariance results (preferred inference)
     model = sm.OLS(y, X).fit()
+    robust = model.get_robustcov_results(cov_type="HC3")
 
+    # Prepare tidy results using HC3 robust SEs and p-values
     results_df = pd.DataFrame(
         {
-            "variable": model.params.index,
-            "coefficient": model.params.values,
-            "std_error": model.bse.values,
-            "t_value": model.tvalues.values,
-            "p_value": model.pvalues.values,
+            "variable": X.columns,
+            "coefficient": robust.params,
+            "std_error": robust.bse,
+            "t_value": robust.tvalues,
+            "p_value": robust.pvalues,
         }
     )
 
+    # Print both summaries for transparency
     print(model.summary())
+    print("\nHC3 robust summary:\n")
+    print(robust.summary())
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
+    # Save the HC3 robust summary and the tidy CSV (using HC3 SEs)
     with open(OUTPUT_DIR / "regression_results.txt", "w") as file_handle:
-        file_handle.write(model.summary().as_text())
+        file_handle.write(robust.summary().as_text())
 
     results_df.to_csv(OUTPUT_DIR / "regression_results.csv", index=False)
 
