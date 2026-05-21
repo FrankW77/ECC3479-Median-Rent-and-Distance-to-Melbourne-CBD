@@ -47,7 +47,6 @@ Robustness Analysis Notebook contains a brief restatement of the main result and
 
 The notebook exports a robustness table and diagnostic plots. The negative distance–rent association is consistent in sign across checks but imprecisely estimated. See the robustness notebook for the full table and interpretation.
 
-If you'd like a one-page summary suitable for slides, I can produce that next.
 ---
 
 ## Repository Structure
