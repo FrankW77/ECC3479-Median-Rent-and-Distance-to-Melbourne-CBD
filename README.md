@@ -29,7 +29,7 @@ pip install -r requirements.txt
 # Open and run the primary analysis notebook
 jupyter notebook outputs/Primary\ Econometric\ Analysis.ipynb
 ```
-Primary Analysis Notebook contains data loading, exploratory analysis, and the main between-LGA regression. The analysis is descriptive and does not claim causation.
+Primary Analysis Notebook contains data loading, exploratory analysis, and the main between-LGA regression. The notebook prints the classical OLS table, while `code/run_regression.py` exports the HC3-robust version used for preferred inference. The analysis is descriptive and does not claim causation.
 
 Main result: β ≈ -0.82 AUD/km (HC3 SE ≈ 0.53, p ≈ 0.13). The estimate is suggestive but imprecise.
 
@@ -114,7 +114,7 @@ Key Details:
 - Key Regressor: Mean straight-line distance from LGA centroid to Melbourne CBD (km)
 - Controls: Mean offence count (crime), mean total schools, mean GP clinics per 1000 residents (health access)
 - Sample: 31 LGAs with complete data for all variables
-- Standard Errors: Plain OLS on one observation per LGA
+- Estimation: OLS on one observation per LGA; the notebook prints classical OLS output, while `code/run_regression.py` exports HC3-robust inference
 - Functional Form: Linear, with a log-linear robustness check in the notebook
 
 Specification Rationale:
@@ -126,10 +126,10 @@ We collapse the panel to the LGA level because distance does not vary within an 
 
 The analysis controls for crime (offence count), school availability (total schools), and health access (GP clinics per 1000 residents) at the LGA level.
 
-- **With controls (preferred inference: HC3 SEs):**
-- Linear model (HC3): -$0.82 per week per km (HC3 SE ≈ 0.528, p ≈ 0.134, not statistically significant at conventional levels)
-- Note: the Primary Econometric Analysis notebook also prints a classical OLS table (classical p-value ≈ 0.161); `code/run_regression.py` now writes the HC3-robust results to `outputs/regression_results.csv` and `outputs/regression_results.txt`.
-- Log-linear check (HC3): about -0.25% per km (p ≈ 0.129, not statistically significant).
+Preferred inference (HC3, reported in `code/run_regression.py`):
+- Linear model: -$0.82 per week per km (HC3 SE ≈ 0.528, p ≈ 0.134, not statistically significant at conventional levels)
+- Note: the Primary Econometric Analysis notebook also prints a classical OLS table (classical p-value ≈ 0.161); `code/run_regression.py` writes the HC3-robust results to `outputs/regression_results.csv` and `outputs/regression_results.txt`.
+- Log-linear check: about -0.25% per km (HC3 p ≈ 0.129, not statistically significant).
 - R² = 0.355 (captures ~35.5% of between-LGA rent variation)
 - Sample: 31 LGAs with complete data
 
